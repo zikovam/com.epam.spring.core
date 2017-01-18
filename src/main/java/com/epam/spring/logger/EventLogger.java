@@ -1,11 +1,13 @@
 package com.epam.spring.logger;
 
 
+import com.epam.spring.Event;
+
 public interface EventLogger {
 
     /**
      * Uses for log our message to somewhere
-     * @param msg - message to log
+     * @param event - event which needed to log
      */
-    public void logEvent (String msg);
+    public void logEvent (Event event);
 }

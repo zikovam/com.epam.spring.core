@@ -13,11 +13,11 @@ public class App {
         this.eventLogger = eventLogger;
     }
 
-    public void logEvent (String msg){
-        String message = msg.replaceAll(
-                client.getId(), client.getFullName());
+    public void logEvent (Event event, String msg){
 
-        eventLogger.logEvent(message);
+        event.setMsg(msg);
+
+        eventLogger.logEvent(event);
     }
 
     public static void main (String[] args) {
@@ -27,7 +27,7 @@ public class App {
 
         App app = (App) ctx.getBean("app");
 
-        app.logEvent("Great event for 1");
-        app.logEvent("Great event for 2");
+        app.logEvent((Event) ctx.getBean("event"), "Message 1");
+        app.logEvent((Event) ctx.getBean("event"), "Message 2");
     }
 }
