@@ -5,15 +5,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
-    public Client client;
-    public ConsoleEventLogger eventLogger;
+    private Client client;
+    private ConsoleEventLogger eventLogger;
 
     public App (Client client, ConsoleEventLogger eventLogger) {
         this.client = client;
         this.eventLogger = eventLogger;
     }
 
-    public void logEvent (Event event, String msg){
+    private void logEvent (Event event, String msg){
 
         event.setMsg(msg);
 
