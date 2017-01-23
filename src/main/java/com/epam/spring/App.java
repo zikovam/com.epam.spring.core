@@ -1,14 +1,16 @@
 package com.epam.spring;
 
 import com.epam.spring.logger.ConsoleEventLogger;
+import com.epam.spring.logger.EventLogger;
+import com.epam.spring.logger.FileEventLogger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
     private Client client;
-    private ConsoleEventLogger eventLogger;
+    private EventLogger eventLogger;
 
-    public App (Client client, ConsoleEventLogger eventLogger) {
+    public App (Client client, EventLogger eventLogger) {
         this.client = client;
         this.eventLogger = eventLogger;
     }
@@ -28,6 +30,6 @@ public class App {
         App app = (App) ctx.getBean("app");
 
         app.logEvent((Event) ctx.getBean("event"), "Message 1");
-        app.logEvent((Event) ctx.getBean("event"), "Message 2");
+//        app.logEvent((Event) ctx.getBean("event"), "Message 2");
     }
 }

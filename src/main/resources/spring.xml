@@ -13,6 +13,11 @@
     <bean id="eventLogger"
           class="com.epam.spring.logger.ConsoleEventLogger"/>
 
+    <bean id="fileEventLogger"
+          class="com.epam.spring.logger.FileEventLogger">
+        <constructor-arg value="log.txt"/>
+    </bean>
+
     <bean id="app" class="com.epam.spring.App">
         <constructor-arg ref="client"/>
         <constructor-arg ref="eventLogger"/>
