@@ -1,7 +1,7 @@
 package com.epam.spring.logger;
 
 
-import com.epam.spring.Event;
+import com.epam.spring.beans.Event;
 
 public interface EventLogger {
 

@@ -1,6 +1,6 @@
 package com.epam.spring.logger;
 
-import com.epam.spring.Event;
+import com.epam.spring.beans.Event;
 
 /**
  * Created by zikovam on 18.01.17.
