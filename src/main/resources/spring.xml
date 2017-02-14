@@ -26,12 +26,17 @@
     <bean id="client" class="com.epam.spring.beans.Client"
           c:id="${id}"
           c:fullName="${name}"
-          p:greeting="${greeting}"/>
+          p:greeting="#{'Hello ' +
+            ( systemEnvironment['USER']) }"/>
 
-    <bean id="app" class="com.epam.spring.App"
-          c:client-ref="client"
-          c:eventLogger-ref="consoleEventLogger"
-          c:loggers-ref="loggerMap"/>
+    <bean id="app" class="com.epam.spring.App">
+        <constructor-arg ref="client" />
+        <constructor-arg value="#{ T(com.epam.spring.beans.Event).isDay(8,17) ?
+            cacheFileLogger : consoleEventLogger }" />
+        <constructor-arg ref="loggerMap"/>
+        <property name="startupMessage" value="#{'Hello user ' +
+            ( systemEnvironment['USER'] ) }"/>
+    </bean>
 
     <util:map id="loggerMap">
         <entry key="INFO" value-ref="consoleEventLogger" />
